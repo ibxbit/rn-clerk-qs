@@ -12,7 +12,7 @@ export default function Index() {
          {/* DEMO IMAGE */}
           <View className="items-center">
             <Image
-              source={require("../../assets/images/1st.png")}
+              source={require("../../assets/images/kw.webp")}
               className="size-96"
               resizeMode="contain"
             />

@@ -1,5 +1,5 @@
 {
-  "name": "canary",
+  "name": "rn-clerk-qs",
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
