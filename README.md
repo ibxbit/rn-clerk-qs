@@ -1,149 +1,72 @@
-rn-clerk-qs
-🚀 React Native (Expo) & Clerk Quickstart
-This repository serves as a boilerplate or quickstart guide for integrating Clerk—a developer-first authentication and user management platform—into a React Native application built with Expo.
+# ⚛️ RN Clerk Quickstart
 
-It provides a secure, fully functional authentication flow right out of the box, including sign-up, sign-in, and protected routes.
+## 🛡️ Authentication Boilerplate with React Native & Clerk
 
-✨ Features
-Secure Authentication: Full sign-up and sign-in flow using the @clerk/clerk-expo SDK.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
+[![Tech Stack: React Native](https://img.shields.io/badge/Framework-React%20Native-61DAFB.svg?style=flat&logo=react)](https://reactnative.dev/) 
+[![Auth: Clerk](https://img.shields.io/badge/Auth-Clerk-3A38CD.svg?style=flat&logo=clerk)](https://clerk.com/)
 
-Protected Routes: Example usage of the useAuth hook and conditional rendering/navigation to protect content only for signed-in users.
 
-User Profile: A basic screen demonstrating how to retrieve and display signed-in user information.
 
-Expo Router (or similar): Structure ready for modern React Native routing (assuming a common setup like Expo Router).
+A fully functional, secure authentication quickstart project using **Clerk** and **React Native** (via Expo). This boilerplate includes protected routes, user profile management, and session handling, ready for you to build your mobile application features on top of a solid auth foundation.
 
-Secure Token Storage: Integration with expo-secure-store for safe storage of session tokens.
+---
 
-🛠️ Tech Stack
-Framework: React Native
+## ✨ Features
 
-Environment: Expo
+* **Integrated Auth Flow:** Complete sign-up, sign-in, and sign-out functionality.
+* **Secure Storage:** Uses **`expo-secure-store`** for safe storage of session tokens.
+* **Protected Routing:** Demonstrates route guarding (e.g., using **Expo Router**) to redirect authenticated/unauthenticated users.
+* **Profile Management:** Example of fetching and displaying the signed-in user's data.
 
-Authentication: Clerk (@clerk/clerk-expo)
+---
 
-Routing: Expo Router (or React Navigation)
+## 🚀 Getting Started
 
-Secure Storage: expo-secure-store
+Follow these steps to set up and run the project locally.
 
-⚙️ Getting Started
-Follow these steps to get the project running on your local machine.
+### Prerequisites
 
-Prerequisites
-Node.js: Ensure you have Node.js (v18+) installed.
+You'll need a few tools installed:
 
-Expo CLI: Install the Expo CLI globally.
+* **Node.js** (LTS version recommended)
+* **Expo CLI** (`npm install -g expo`)
+* A **Clerk Account**: [Sign up for free](https://clerk.com/signup).
 
-Bash
+### Installation
 
-npm install -g expo-cli
-# OR
-npm install -g expo
-Clerk Account: Create a free account on Clerk.
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/ibxbit/rn-clerk-qs.git](https://github.com/ibxbit/rn-clerk-qs.git)
+    cd rn-clerk-qs
+    ```
 
-Installation & Setup
-Clone the repository:
+2.  **Install Dependencies**
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-Bash
+3.  **Set Environment Variables**
 
-git clone https://github.com/ibxbit/rn-clerk-qs.git
-cd rn-clerk-qs
-Install dependencies:
+    * Create a file named **`.env`** in the project root.
+    * Get your **Clerk Publishable Key** (`pk_live_...`) from your Clerk Dashboard.
+    * Add the key to your `.env` file using the Expo public format:
 
-Bash
+    ```env
+    # .env
+    EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY="pk_test_your_publishable_key_here"
+    ```
+    > ⚠️ **IMPORTANT:** Never commit your Clerk Secret Key to GitHub.
 
-npm install
-# OR
-yarn install
-Configure Environment Variables:
+---
 
-Create a file named .env in the root of your project.
+## ▶️ Running the App
 
-Get your Publishable Key from the Clerk Dashboard (API Keys section).
+Start the Expo development server and run the app on your device or emulator.
 
-Add the following line to your .env file:
-
-Code snippet
-
-# .env
-EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_your_publishable_key_here
-⚠️ Security Warning: Never commit your Secret Key to a public repository! Only the Publishable Key is safe to use in the Expo public environment variable format (EXPO_PUBLIC_...).
-
-Run the application:
-
-Bash
-
+```bash
 npm start
-# OR
+# or
 expo start
-This will open the Expo Dev Tools in your browser. You can then scan the QR code with the Expo Go app on your phone (iOS or Android) or run it in a simulator/emulator.
-
-🧭 Usage and Structure
-The main application flow is structured around the user's authentication state, typically managed by the main application file (e.g., App.js or _layout.js if using Expo Router).
-
-ClerkProvider
-The entire application is wrapped in the ClerkProvider to enable access to authentication hooks and components:
-
-JavaScript
-
-// Example in a root file
-import { ClerkProvider } from '@clerk/clerk-expo';
-import { tokenCache } from './utils/tokenCache';
-
-export default function App() {
-  return (
-    <ClerkProvider 
-      publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}
-      tokenCache={tokenCache}
-    >
-      <InitialLayout />
-    </ClerkProvider>
-  );
-}
-Protected Content
-Use Clerk's hooks, like useAuth() and useUser(), to conditionally render components or handle navigation for signed-in users.
-
-JavaScript
-
-// Example of a Protected Component
-import { useUser, SignedIn, SignedOut, UserButton } from "@clerk/clerk-expo";
-
-function HomeScreen() {
-  const { isLoaded, user } = useUser();
-
-  if (!isLoaded) return <ActivityIndicator />;
-
-  return (
-    <View>
-      <SignedIn>
-        <Text>Welcome back, {user.firstName}!</Text>
-        <UserButton />
-      </SignedIn>
-      <SignedOut>
-        <Text>Please sign in to continue.</Text>
-      </SignedOut>
-    </View>
-  );
-}
-🤝 Contributing
-Contributions are what make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-
-Fork the Project
-
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-
-Commit your Changes (git commit -m 'Add some AmazingFeature')
-
-Push to the Branch (git push origin feature/AmazingFeature)
-
-Open a Pull Request
-
-📧 Contact
-Your Name or Project Maintainer - [Your Email Address]
-
-Project Link: https://github.com/ibxbit/rn-clerk-qs (Use your actual repo URL)
-
-📜 License
-Distributed under the MIT License. See LICENSE for more information.
-
-(You should replace the bracketed placeholders like [Your Name or Project Maintainer] and the example link with your actual information.)
