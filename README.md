@@ -70,3 +70,7 @@ Start the Expo development server and run the app on your device or emulator.
 npm start
 # or
 expo start
+
+
+<img width="479" height="853" alt="image" src="https://github.com/user-attachments/assets/e2ea3f38-6c0c-4d45-898b-6c9ddf0737a9" />
+
