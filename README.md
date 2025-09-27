@@ -72,5 +72,3 @@ npm start
 expo start
 
 
-<img width="479" height="853" alt="image" src="https://github.com/user-attachments/assets/e2ea3f38-6c0c-4d45-898b-6c9ddf0737a9" />
-
