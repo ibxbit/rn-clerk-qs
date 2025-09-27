@@ -33,5 +33,5 @@ export default function AuthRoutesLayout() {
         animation: 'none', // Disable animations to prevent flashing
       }}
     />
-  );
+  ); 
 }
