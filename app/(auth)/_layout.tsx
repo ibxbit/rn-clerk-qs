@@ -17,15 +17,17 @@ export default function AuthRoutesLayout() {
     <Stack 
       screenOptions={{
         headerShown: true,
-        headerTitle: 'Welcome',
+        headerTitle: '',
         headerBackVisible: false, // Disable back button since this is the entry point
         headerStyle: {
-          backgroundColor: '#fff',
+          backgroundColor: '#000',
         },
         headerTitleStyle: {
           fontWeight: '600',
           fontSize: 18,
+          color: '#fff',
         },
+        headerTintColor: '#fff', // For any header icons
         // Prevent any navigation gestures that could cause issues
         gestureEnabled: false,
         animation: 'none', // Disable animations to prevent flashing
