@@ -1,9 +1,11 @@
 import { useClerk } from "@clerk/clerk-expo";
+import { useRouter } from "expo-router";
 import { Alert } from "react-native";
 
 
 export const useSignOut = () => {
     const { signOut } = useClerk();
+    const router = useRouter();
 
 
     const handleSignOut = () => {
@@ -12,7 +14,11 @@ export const useSignOut = () => {
             {
                 text: "Logout",
                 style: "destructive",
-                onPress: () => signOut(),
+                onPress: async () => {
+                    await signOut();
+                    // Navigate to auth page and clear the navigation stack
+                    router.replace("/(auth)");
+                },
             },
         ]);
     };
